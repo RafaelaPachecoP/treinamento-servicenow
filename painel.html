@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel</title>
+</head>
+<body>
+    <h1>Painel inicial</h1>
+    <div class="IncidentesA">
+        <h3>Incidentes ativos</h3>
+        <p id="ativos">Carregando...</p>
+    </div>
+
+    <div class="IncidentesP1">
+        <h3>Incidentes P1</h3>
+        <p id="p1">Carregando...</p>
+    </div>
+
+    <div class="mudancas">
+        <h3>Mudanças agendadas</h3>
+        <p id="agendadas">Carregando...</p>
+    </div>
+
+    
+    <button onclick="sair()">Sair</button>
+    <script>
+        if(sessionStorage.getItem("url") == null){
+            window.location.href = "index.html";
+        }
+
+        const url = document.getElementById("url");
+        const usuario = document.getElementById("usuario");
+        const senha = document.getElementById("senha");
+
+        const sair = () => {
+            sessionStorage.clear();
+            window.location.href = "index.html";
+        };
+    </script>
+</body>
+</html>

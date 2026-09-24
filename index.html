@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinamento</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="esquerda">
+        <h1>Acesse os dados da sua instância.</h1>
+        <p>Conecte sua instância para ver incidentes e acompanhar o que está em andamento.</p>
+    </div>
+    
+    <div class="direita">
+        <form>
+            <h2>Conectar à instância</h2>
+            <p class="subtitulo">Informe os dados de acesso da sua instância.</p>
+
+        <label for="url">URL da instância</label>
+        <input id="url" type="text" placeholder="https://dev427527.service-now.com">
+
+        <label for="usuario">Usuário</label>
+        <input id="usuario" type="text">
+
+        <label for="senha">Senha</label>
+        <input id="senha" type="password">
+
+        <button type="button" onclick="conectar()">Conectar</button>
+        </form>
+
+        <p id="erro"></p>
+    </div>
+
+    <script>
+        const conectar = () => {
+            const url = document.getElementById("url");
+            const usuario = document.getElementById("usuario");
+            const senha = document.getElementById("senha");
+            const erro = document.getElementById("erro");
+            
+            erro.textContent = "";
+            url.classList.remove("invalido");
+            usuario.classList.remove("invalido");
+            senha.classList.remove("invalido");
+
+            let vazio = false;
+
+            if(url.value == ""){
+                url.classList.add("invalido");
+                vazio = true;
+            }
+
+            if(usuario.value == ""){
+                usuario.classList.add("invalido");
+                vazio = true;
+            }
+
+            if(senha.value == ""){
+                senha.classList.add("invalido");
+                vazio = true;
+            }
+
+            if(vazio){
+                erro.textContent = "Preencha todos os campos.";
+            }
+            else{
+                const credenciais = btoa(`${usuario.value}:${senha.value}`);
+                fetch(`${url.value}/api/now/table/incident?sysparm_limit=1`,{
+                    headers: {Authorization: `Basic ${credenciais}`},
+                })
+                .then((resposta) => {
+                    if(resposta.status == 401){
+                        erro.textContent = "Usuário ou senha inválidos";
+                    }
+                    else if(resposta.ok){
+                        sessionStorage.setItem("url", url.value);
+                        sessionStorage.setItem("usuario", usuario.value);
+                        sessionStorage.setItem("senha", senha.value);
+                        window.location.href = "painel.html";
+                    }
+                    else{
+                        erro.textContent = "Erro " +resposta.status;
+                    }
+                })
+                .catch(() => {
+                    erro.textContent = "Não foi possível conectar."
+                });
+            }
+        };
+    </script>
+</body>
+</html>
