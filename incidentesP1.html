@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incidentes P1</title>
+    <link rel="stylesheet" href="painel_p1.css">
+</head>
+<body>
+    <main>
+        <a class="volta" href="painel.html">Voltar para o painel</a>
+        <h1>INCIDENTES P1</h1>
+        <p id="mensagem">Carregando...</p>
+        <ul id="lista"></ul>
+    </main>
+
+    <script>
+        if(sessionStorage.getItem("url") == null){
+            window.location.href = "index.html";
+        }
+
+        const url = sessionStorage.getItem("url");
+        const usuario = sessionStorage.getItem("usuario");
+        const senha = sessionStorage.getItem("senha");
+        const credenciais = btoa(`${usuario}:${senha}`);
+
+        const mensagem = document.getElementById("mensagem");
+        const lista = document.getElementById("lista");
+
+         fetch(`${url}/api/now/table/incident?sysparm_query=active=true^priority=1&sysparm_fields=number,short_description&sysparm_limit=100`, 
+            {headers: {Authorization: `Basic ${credenciais}`},
+        })
+
+        .then((resposta) => resposta.json())
+        .then((dados) => {
+            if(dados.result.length == 0){
+                mensagem.textContent = "Nenhum incidente P1 ativo."
+            }
+            else{
+                mensagem.textContent = "";
+                dados.result.forEach((incidente) => {
+                    const item = document.createElement("li");
+                    item.textContent = `${incidente.number} - ${incidente.short_description}`;
+                    lista.appendChild(item);
+                });
+            }
+        })
+
+        .catch(() => {
+            mensagem.textContent = "Não foi possível carregar";
+        });
+
+    </script>
+</body>
+</html>

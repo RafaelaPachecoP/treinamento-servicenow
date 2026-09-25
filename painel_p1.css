@@ -1,0 +1,164 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eef2f9;
+    color: #1c2a3e;
+}
+
+/*cabecalho*/
+header{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 60px;
+    background-color: #5992c6;
+    color: white;
+}
+
+header h2{
+    margin: 0;
+    font-size: 20px;
+}
+
+#conectado{
+    margin-left: auto;
+    font-size: 14px;
+}
+
+header button{
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #5992c6;
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/*titulo*/
+h1{
+    margin: 32px 60px 24px;
+    font-size: 32px;
+    color: #5992c6;
+}
+
+main{
+    padding: 0 60px 60px;
+}
+
+/*cards*/
+.cards{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.card{
+    position: relative;
+    padding: 32px 40px;
+    min-height: 200px;
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid #d5dde8;
+    color: #1c2a3e;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card h3{
+    margin: 0 0 20px;
+    font-size: 60px;
+    font-weight: normal;
+    color: #4a5565;
+}
+
+.card p{
+    margin: 0;
+    font-size: 84px;
+    font-weight: bold;
+    color: #5992c6;
+}
+
+a.card:hover{
+    border-color: #5992c6;
+}
+
+
+
+/*atalhos*/
+.atalhos{
+    display: flex;
+    gap: 16px;
+}
+
+.botao{
+    padding: 30px 55px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.botao-cheio{
+    color: white;
+    background-color: #5992c6;
+}
+
+.botao-cheio:hover{
+    background-color: #123a82;
+}
+
+.botao-contorno{
+    color: #5992c6;
+    background-color: white;
+    border: 1px solid #5992c6;
+}
+
+.botao-contorno:hover{
+    background-color: #eaf1ff;
+}
+
+/*lista*/
+.volta{
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #5992c6;
+    background-color: white;
+    border: 1px solid #5992c6;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.volta:hover{
+    background-color: #eaf1ff;
+}
+#lista{
+    padding: 0;
+    list-style: none;
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid #d5dde8;
+    overflow: hidden;
+}
+
+#lista li{
+    margin: 0;
+    padding: 16px 24px;
+    border-bottom: 1px solid #d5dde8;
+    font-size: 16px;
+}
+
+#lista li:last-child{
+    border-bottom: none;
+}
