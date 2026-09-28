@@ -14,19 +14,26 @@
         <span id="conectado"></span>
         <button onclick="sair()">Sair</button>
     </header>
-    <h1>PAINEL INICIAL</h1>
     <main>
+        <h1>PAINEL INICIAL</h1>
         <div class="cards">
+            <div class="card">
+                <h3>Todos incidentes</h3>
+                <p id="todos">Carregando...</p>
+                <a class="ver-lista" href="incidentes.html">Ver lista</a>
+            </div>
+
             <div class="card">
                 <h3>Incidentes ativos</h3>
                 <p id="ativos">Carregando...</p>
             </div>
 
-            <a class="card" href="incidentesP1.html">
+            <div class="card">
                 <h3>Incidentes P1</h3>
                 <p id="p1">Carregando...</p>
-            </a>
-
+                <a class="ver-lista" href="incidentesP1.html">Ver lista</a>
+            </div>
+            
             <div class="card">
                 <h3>Mudanças agendadas</h3>
                 <p id="agendadas">Carregando...</p>
@@ -52,7 +59,20 @@
         const credenciais = btoa(`${usuario}:${senha}`);
 
         document.getElementById("conectado").textContent = `${url}  - ${usuario}`;
+       
+        //todos os incidentes
+        fetch(`${url}/api/now/table/incident?sysparm_fields=sys_id&sysparm_limit=1000`, 
+            {headers: {Authorization: `Basic ${credenciais}`},
+        })
 
+        .then((resposta) => resposta.json())
+        .then((dados) => {
+            document.getElementById("todos").textContent = dados.result.length;
+        })
+        .catch(() => {
+            document.getElementById("todos").textContent = "Não foi possível carregar";
+        });
+        
         //incidentes ativos
         fetch(`${url}/api/now/table/incident?sysparm_query=active=true&sysparm_fields=sys_id&sysparm_limit=1000`, 
             {headers: {Authorization: `Basic ${credenciais}`},

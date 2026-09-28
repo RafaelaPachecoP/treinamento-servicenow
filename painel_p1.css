@@ -51,6 +51,11 @@ main{
     padding: 0 60px 60px;
 }
 
+main h1{
+    margin: 32px 0 24px;
+    font-size: 32px;
+    color: #5992c6;
+}
 /*cards*/
 .cards{
     display: grid;
@@ -126,22 +131,23 @@ a.card:hover{
     background-color: #eaf1ff;
 }
 
-/*lista*/
-.volta{
-    display: inline-block;
-    margin-bottom: 20px;
-    padding: 8px 16px;
+
+/*lista - incidentes*/
+ .volta{
+    padding: 10px 20px;
     font-size: 14px;
     font-weight: bold;
     color: #5992c6;
     background-color: white;
-    border: 1px solid #5992c6;
+    border: none;
     border-radius: 6px;
     text-decoration: none;
+    display: inline-block;
 }
 
 .volta:hover{
     background-color: #eaf1ff;
+    text-decoration: underline;
 }
 #lista{
     padding: 0;
@@ -161,4 +167,17 @@ a.card:hover{
 
 #lista li:last-child{
     border-bottom: none;
+} 
+
+.ver-lista{
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #5992c6;
+    text-decoration: none;
+}
+
+.ver-lista:hover{
+    text-decoration: underline;
 }

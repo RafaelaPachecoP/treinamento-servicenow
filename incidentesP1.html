@@ -7,8 +7,15 @@
     <link rel="stylesheet" href="painel_p1.css">
 </head>
 <body>
-    <main>
+    <header>
+        <h2>Treinamento ServiceNow</h2>
+        <span id="conectado"></span>
         <a class="volta" href="painel.html">Voltar para o painel</a>
+        <button onclick="sair()">Sair</button>
+    </header>
+
+    <main>
+        
         <h1>INCIDENTES P1</h1>
         <p id="mensagem">Carregando...</p>
         <ul id="lista"></ul>
@@ -23,6 +30,13 @@
         const usuario = sessionStorage.getItem("usuario");
         const senha = sessionStorage.getItem("senha");
         const credenciais = btoa(`${usuario}:${senha}`);
+
+        document.getElementById("conectado").textContent = `${url} - ${usuario}`;
+
+        const sair = () => {
+        sessionStorage.clear();
+        window.location.href = "index.html";
+        };
 
         const mensagem = document.getElementById("mensagem");
         const lista = document.getElementById("lista");

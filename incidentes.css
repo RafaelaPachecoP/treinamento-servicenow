@@ -1,0 +1,109 @@
+/*pagina de incidentes - filtros*/
+main label{
+    display: inline-block;
+    margin-right: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #4a5565;
+}
+
+main select, main input[type="text"]{
+    padding: 8px 12px;
+    margin-right: 16px;
+    font-size: 14px;
+    border: 1px solid #d5dde8;
+    border-radius: 6px;
+    background-color: white;
+    color: #1c2a3e;
+}
+
+main select:focus,
+main input[type="text"]:focus{
+    outline: 2px solid #5992c6;
+    border-color: #5992c6;
+}
+
+main input[type="text"]{
+    width: 260px;
+}
+
+main button{
+    padding: 9px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #5992c6;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+main button:hover{
+    background-color: #123a82;
+}
+
+/*tabela de incidentes*/
+table{
+    width: 100%;
+    margin-top: 24px;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+thead{
+    background-color: #eef2f9;
+}
+
+th{
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 16px;
+    color: #4a5565;
+    border-bottom: 1px solid #d5dde8;
+}
+
+td{
+    padding: 14px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #eef2f9;
+}
+
+tbody tr:hover{
+    background-color: #f4f7fb;
+}
+
+tbody tr:last-child td{
+    border-bottom: none;
+}
+
+/*paginação*/
+#anterior,
+#proxima{
+    margin-top: 20px;
+    margin-right: 8px;
+    background-color: white;
+    color: #5992c6;
+    border: 1px solid #5992c6;
+}
+
+#anterior:hover:not(:disabled),
+#proxima:hover{
+    background-color: #eaf1ff;
+}
+
+#anterior:disabled{
+    color: #b8c2d0;
+    border-color: #d5dde8;
+    background-color: #f4f7fb;
+    cursor: not-allowed;
+}
+
+#numero-pagina{
+    margin: 0 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #4a5565;
+}
