@@ -68,7 +68,7 @@ th{
 td{
     padding: 14px 16px;
     font-size: 14px;
-    border-bottom: 1px solid #eef2f9;
+    border-bottom: 11px solid #eef2f9;
 }
 
 tbody tr:hover{
@@ -173,4 +173,8 @@ tbody tr:last-child td{
 
 .modal-caixa strong{
     color: black;
+}
+
+tr:focus{
+    outline: 2px solid #5b9bd5;
 }
