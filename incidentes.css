@@ -107,3 +107,70 @@ tbody tr:last-child td{
     font-weight: bold;
     color: #4a5565;
 }
+
+#modal-fundo.fundo{
+    display: none;
+}
+
+#modal-fundo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 20, 40, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-caixa{
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 32px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+}
+
+.modal-topo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.modal-topo button{
+    background-color: #5b9bd5;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.modal-topo button:hover{
+    background-color: #4a89c4;
+}
+
+#modal-numero{
+    color: #5b9bd5;
+    font-weight: bold;
+}
+
+#modal-titulo{
+    margin-top: 0;
+    color: black;
+}
+
+.modal-caixa p{
+    color: gray;
+    line-height: 1.5;
+}
+
+.modal-caixa strong{
+    color: black;
+}

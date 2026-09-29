@@ -73,7 +73,30 @@
         <span id="numero-pagina"></span>
         <button id="proxima" onclick="proximaPagina()">Próxima</button>
     </main>
-    
+
+    <div id="modal-fundo" class="modal-fundo fundo">
+        <div class="modal-caixa">
+            <div class="modal-topo">
+                 <span id="modal-numero"></span>
+                <button onclick="fecharModal()">Fechar</button>
+            </div>
+
+            <h2 id="modal-titulo"></h2>
+            <p><strong>Solicitante:</strong> <span id="modal-solicitante"></span></p>
+            <p><strong>Categoria:</strong> <span id="modal-categoria"></span></p>
+            <p><strong>Grupo designado:</strong> <span id="modal-grupo"></span></p>
+            <p><strong>Impacto:</strong> <span id="modal-impacto"></span></p>
+            <p><strong>Urgência:</strong> <span id="modal-urgencia"></span></p>
+            <p><strong>Prioridade:</strong> <span id="modal-prioridade"></span></p>
+            <p><strong>Responsável:</strong> <span id="modal-responsavel"></span></p>
+            <p><strong>Estado:</strong> <span id="modal-estado"></span></p>
+            <p><strong>Aberto em:</strong> <span id="modal-aberto"></span></p>
+            <p><strong>Atualizado em:</strong> <span id="modal-atualizado"></span></p>
+
+            <p><strong>Descrição completa:</strong></p>
+            <p id="modal-descricao"></p>
+        </div>
+    </div>
 
     <script>
         if(sessionStorage.getItem("url") == null){
@@ -95,6 +118,7 @@
         const mensagem = document.getElementById("mensagem");
         const corpo = document.getElementById("corpo");
         let pagina = 0;
+        let linhaAberta = null;
 
         function corDaPrioridade(prioridade){
             if(prioridade.includes("1")) return "vermelho";
@@ -130,7 +154,7 @@
 
             document.getElementById("numero-pagina").textContent = `Página ${pagina + 1}`
 
-             fetch(`${url}/api/now/table/incident?sysparm_query=${consulta}ORDERBYDESCopened_at&sysparm_fields=number,short_description,priority,state,assignment_group,opened_at&sysparm_limit=20&sysparm_offset=${pagina * 20}&sysparm_display_value=true`, {
+             fetch(`${url}/api/now/table/incident?sysparm_query=${consulta}ORDERBYDESCopened_at&sysparm_fields=sys_id,number,short_description,priority,state,assignment_group,opened_at&sysparm_limit=20&sysparm_offset=${pagina * 20}&sysparm_display_value=true`, {
                 headers: {Authorization: `Basic ${credenciais}`},
             })
             .then((resposta) => resposta.json())
@@ -152,6 +176,9 @@
                             <td>${incidente.assignment_group.display_value}</td>
                             <td>${incidente.opened_at}</td>
                         `;
+                        linha.style.cursor = "pointer";
+                        linha.setAttribute("tabindex", "0");
+                        linha.onclick = () => abrirModal(incidente.sys_id, linha)
                         corpo.appendChild(linha);
                     });
                 }
@@ -182,7 +209,50 @@
                 document.getElementById("anterior").disabled = true;
                 buscarIncidentes();
             }
-    
+
+            function abrirModal(sysId, linha){
+                linhaAberta = linha;
+
+                fetch(`${url}/api/now/table/incident/${sysId}?sysparm_display_value=true`, {
+                    headers: {Authorization: `Basic ${credenciais}`},
+                })
+                .then((resposta) => resposta.json())
+                .then((dados) => {
+                    const incidente = dados.result;
+
+                    document.getElementById("modal-numero").textContent = incidente.number;
+                    document.getElementById("modal-titulo").textContent = incidente.short_description;
+                    document.getElementById("modal-solicitante").textContent = incidente.caller_id.display_value || "Não informado";
+                    document.getElementById("modal-categoria").textContent = incidente.category || "Não informado";
+                    document.getElementById("modal-grupo").textContent = incidente.assignment_group.display_value || "Não informado";
+                    document.getElementById("modal-impacto").textContent = incidente.impact || "Não informado";
+                    document.getElementById("modal-urgencia").textContent = incidente.urgency || "Não informado";
+                    document.getElementById("modal-prioridade").textContent = incidente.priority || "Não informado";
+                    document.getElementById("modal-responsavel").textContent = incidente.assigned_to.display_value || "Não informado";
+                    document.getElementById("modal-estado").textContent = incidente.state || "Não informado";
+                    document.getElementById("modal-aberto").textContent = incidente.opened_at || "Não informado";
+                    document.getElementById("modal-atualizado").textContent = incidente.sys_updated_on || "Não informado";
+                    document.getElementById("modal-descricao").textContent = incidente.description || "Não informado";
+
+                    document.getElementById("modal-fundo").classList.remove("fundo");
+                })
+                .catch(() =>{
+                    alert("Não foi possível carregar os detalhes do incidente.")
+                })
+            }
+            
+            function fecharModal(){
+                document.getElementById("modal-fundo").classList.add("fundo");
+                if(linhaAberta != null){
+                    try{
+                        linhaAberta.focus();
+                    }
+                    catch(erro){
+                        console.log("Não foi possível foca a linha: ", erro)
+                    }
+                }
+            }
+
             buscarIncidentes();
     </script>
 </body>
