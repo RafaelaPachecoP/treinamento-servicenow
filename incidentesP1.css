@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f6f0e7;
+    color: #1c2a3e;
+}
+
+/*cabeçalho*/
+header{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 60px;
+    background-color: #0b5471;
+    color: white;
+}
+
+header h2{
+    margin: 0;
+    font-size: 20px;
+}
+
+#conectado{
+    margin-left: auto;
+    font-size: 14px;
+}
+
+header button{
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0b5471;
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/*lista - incidentes*/
+.volta{
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0b5471;
+    background-color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.volta:hover{
+    background-color: #f6f0e7;
+    text-decoration: underline;
+}
+
+/*conteudo*/
+main{
+    padding: 0 60px 60px;
+}
+
+main h1{
+    margin: 32px 0 24px;
+    font-size: 32px;
+    color: #0b5471;
+}
+
+/*lista - incidentes*/
+#lista{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid #85b7d6;
+    overflow: hidden;
+}
+
+#lista li{
+    margin: 0;
+    padding: 16px 24px;
+    border-bottom: 1px solid #85b7d6;
+    font-size: 16px;
+}
+
+#lista li:last-child{
+    border-bottom: none;
+} 
+
+

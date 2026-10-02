@@ -16,7 +16,7 @@ body{
     justify-content: center;
     color: white;
     width: 50%;
-    background-color: #5992c6;
+    background-color: #0B5471;
 }
 
 .esquerda p{
@@ -36,7 +36,7 @@ body{
     color: #1b2430;
     padding: 32px;
     width: 50%;
-    background-color: #f4f7fb;
+    background-color: #f6f0e7;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,31 +54,31 @@ form{
 form h2{
     margin: 0 0 24px;
     font-size: 34px;
-    color: #0a2a92;
+    color: #0B5471;
 }
 
 .subtitulo{
     margin: 0 0 24px;
     font-size: 18px;
-    color: #4a5565;
+    color: #797c82;
 }
 
 input{
     font-size: 18px;
     padding: 12px;
     margin-bottom: 18px;
-    border: 1px solid #b8c2d0;
+    border: 1px solid #85b7d6;
     border-radius: 8px;
     background-color: white;
 }
 
 input:focus{
-    outline: 2px solid #5992c6;
-    border-color: #5992c6;
+    outline: 2px solid #85b7d6;
+    border-color: #85b7d6;
 }
 
 .invalido{
-    border: 5px solid #000636;
+    border: 5px solid #633431;
 }
 
 button{
@@ -87,13 +87,13 @@ button{
     font-size: 18px;
     font-weight: bold;
     color: white;
-    background-color: #0a2a92;
+    background-color: #0B5471;
     border: none;
     border-radius: 8px;
     cursor: pointer;
 }
 button:hover{
-    background-color: #5992c6;
+    background-color: #083F56;
 }
 
 label{
@@ -107,6 +107,6 @@ label{
     width: 100%;
     max-width: 440px;
     margin-top: 16px;
-    color: #000636;
+    color: #633431;
     font-size: 15px;
 }

@@ -5,7 +5,7 @@
 body{
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #eef2f9;
+    background-color: #f6f0e7;
     color: #1c2a3e;
 }
 
@@ -15,7 +15,7 @@ header{
     align-items: center;
     gap: 16px;
     padding: 20px 60px;
-    background-color: #5992c6;
+    background-color: #0b5471;
     color: white;
 }
 
@@ -33,20 +33,14 @@ header button{
     padding: 10px 20px;
     font-size: 14px;
     font-weight: bold;
-    color: #5992c6;
+    color: #0b5471;
     background-color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
 }
 
-/*titulo*/
-h1{
-    margin: 32px 60px 24px;
-    font-size: 32px;
-    color: #5992c6;
-}
-
+/*conteudo*/
 main{
     padding: 0 60px 60px;
 }
@@ -54,8 +48,9 @@ main{
 main h1{
     margin: 32px 0 24px;
     font-size: 32px;
-    color: #5992c6;
+    color: #0b5471;
 }
+
 /*cards*/
 .cards{
     display: grid;
@@ -65,14 +60,12 @@ main h1{
 }
 
 .card{
-    position: relative;
     padding: 32px 40px;
     min-height: 200px;
     background-color: white;
     border-radius: 12px;
-    border: 1px solid #d5dde8;
+    border: 1px solid #85b7d8;
     color: #1c2a3e;
-    text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,21 +75,28 @@ main h1{
     margin: 0 0 20px;
     font-size: 60px;
     font-weight: normal;
-    color: #4a5565;
+    color: #797c82;
 }
 
 .card p{
     margin: 0;
     font-size: 84px;
     font-weight: bold;
-    color: #5992c6;
+    color: #0b5471;
 }
 
-a.card:hover{
-    border-color: #5992c6;
+.ver-lista{
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #0b5471;
+    text-decoration: none;
 }
 
-
+.ver-lista:hover{
+    text-decoration: underline;
+}
 
 /*atalhos*/
 .atalhos{
@@ -114,70 +114,19 @@ a.card:hover{
 
 .botao-cheio{
     color: white;
-    background-color: #5992c6;
+    background-color: #0b5471;
 }
 
 .botao-cheio:hover{
-    background-color: #123a82;
+    background-color: #083f56;
 }
 
 .botao-contorno{
-    color: #5992c6;
+    color: #0b5471;
     background-color: white;
-    border: 1px solid #5992c6;
+    border: 1px solid #0b5471;
 }
 
 .botao-contorno:hover{
-    background-color: #eaf1ff;
-}
-
-
-/*lista - incidentes*/
- .volta{
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #5992c6;
-    background-color: white;
-    border: none;
-    border-radius: 6px;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.volta:hover{
-    background-color: #eaf1ff;
-    text-decoration: underline;
-}
-#lista{
-    padding: 0;
-    list-style: none;
-    background-color: white;
-    border-radius: 12px;
-    border: 1px solid #d5dde8;
-    overflow: hidden;
-}
-
-#lista li{
-    margin: 0;
-    padding: 16px 24px;
-    border-bottom: 1px solid #d5dde8;
-    font-size: 16px;
-}
-
-#lista li:last-child{
-    border-bottom: none;
-} 
-
-.ver-lista{
-    display: inline-block;
-    margin-top: 12px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #5992c6;
-    text-decoration: none;
-}
-
-.ver-lista:hover{
-    text-decoration: underline;
+    background-color: #f6f0e7;
 }

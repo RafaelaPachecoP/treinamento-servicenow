@@ -1,26 +1,37 @@
+.badge{
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.badge-vermelho{ background-color: #fbdede; color: #b3261e; }
+.badge-laranja{ background-color: #fde3cf; color: #c2540a; }
+.badge-amarelo{ background-color: #fdf3cf; color: #8a6d00; }
+.badge-cinza{ background-color: #e4e7eb; color: #4a5565; }
+
 /*pagina de incidentes - filtros*/
 main label{
     display: inline-block;
     margin-right: 6px;
     font-weight: bold;
     font-size: 14px;
-    color: #4a5565;
+    color: #797c82;
 }
 
 main select, main input[type="text"]{
     padding: 8px 12px;
     margin-right: 16px;
     font-size: 14px;
-    border: 1px solid #d5dde8;
+    border: 1px solid #85b7d6;
     border-radius: 6px;
     background-color: white;
     color: #1c2a3e;
 }
 
-main select:focus,
-main input[type="text"]:focus{
-    outline: 2px solid #5992c6;
-    border-color: #5992c6;
+main select:focus, main input[type="text"]:focus{
+    outline: 2px solid #85b7d6;
+    border-color: #85b7d6;
 }
 
 main input[type="text"]{
@@ -32,14 +43,14 @@ main button{
     font-size: 14px;
     font-weight: bold;
     color: white;
-    background-color: #5992c6;
+    background-color: #0b5471;
     border: none;
     border-radius: 6px;
     cursor: pointer;
 }
 
 main button:hover{
-    background-color: #123a82;
+    background-color: #083f56;
 }
 
 /*tabela de incidentes*/
@@ -54,25 +65,25 @@ table{
 }
 
 thead{
-    background-color: #eef2f9;
+    background-color: #f6f0e7;
 }
 
 th{
     padding: 14px 16px;
     text-align: left;
     font-size: 16px;
-    color: #4a5565;
-    border-bottom: 1px solid #d5dde8;
+    color: #797c82;
+    border-bottom: 1px solid #85b7d6;
 }
 
 td{
     padding: 14px 16px;
     font-size: 14px;
-    border-bottom: 11px solid #eef2f9;
+    border-bottom: 11px solid #f6f0e7;
 }
 
 tbody tr:hover{
-    background-color: #f4f7fb;
+    background-color: #f6f0e7;
 }
 
 tbody tr:last-child td{
@@ -80,24 +91,22 @@ tbody tr:last-child td{
 }
 
 /*paginação*/
-#anterior,
-#proxima{
+#anterior, #proxima{
     margin-top: 20px;
     margin-right: 8px;
     background-color: white;
-    color: #5992c6;
-    border: 1px solid #5992c6;
+    color: #0b5471;
+    border: 1px solid #0b5471;
 }
 
-#anterior:hover:not(:disabled),
-#proxima:hover{
-    background-color: #eaf1ff;
+#anterior:hover:not(:disabled), #proxima:hover{
+    background-color: #f6f0e7;
 }
 
 #anterior:disabled{
-    color: #b8c2d0;
-    border-color: #d5dde8;
-    background-color: #f4f7fb;
+    color: #797c82;
+    border-color: #85b7d6;
+    background-color: #f6f0e7;
     cursor: not-allowed;
 }
 
@@ -105,7 +114,7 @@ tbody tr:last-child td{
     margin: 0 12px;
     font-size: 14px;
     font-weight: bold;
-    color: #4a5565;
+    color: #797c82;
 }
 
 #modal-fundo.fundo{
@@ -143,7 +152,7 @@ tbody tr:last-child td{
 }
 
 .modal-topo button{
-    background-color: #5b9bd5;
+    background-color: #0b5471;
     color: white;
     border: none;
     padding: 8px 16px;
@@ -153,11 +162,11 @@ tbody tr:last-child td{
 }
 
 .modal-topo button:hover{
-    background-color: #4a89c4;
+    background-color: #083f56;
 }
 
 #modal-numero{
-    color: #5b9bd5;
+    color: #0b5471;
     font-weight: bold;
 }
 
@@ -167,7 +176,7 @@ tbody tr:last-child td{
 }
 
 .modal-caixa p{
-    color: gray;
+    color: #797c82;
     line-height: 1.5;
 }
 
@@ -176,5 +185,5 @@ tbody tr:last-child td{
 }
 
 tr:focus{
-    outline: 2px solid #5b9bd5;
+    outline: 2px solid #85b7d6;
 }
