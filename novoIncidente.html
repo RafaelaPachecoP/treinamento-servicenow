@@ -19,10 +19,10 @@
     <h1>Novo Incidente</h1>
 
     <form id="incidente" novalidate>
-        <label for="solicitante">Solicitante:</label>
+        <label for="solicitante" class="obrigatorio">Solicitante</label>
         <input type="text" id="solicitante" name="solicitante" required>
 
-        <label for="categoria">Categoria:</label>
+        <label for="categoria"">Categoria</label>
         <select type="text" id="categoria" name="categoria" required>
             <option value=""></option>
             <option value="inquiry">Inquiry / Help</option>
@@ -33,15 +33,15 @@
             <option value="password_reset">Password Reset</option>
         </select>
 
-        <label for="descricaoRe">Descrição resumida:</label>
+        <label for="descricaoRe" class="obrigatorio">Descrição resumida</label>
         <input type="text" id="descricaoRe" name="descricaoRe" maxlength="160">
         <span id="contador">160 caracteres restantes</span>
         <span id="erroDescricaoRe" class="erro"></span>
 
-        <label for="descricao">Descrição:</label>
+        <label for="descricao">Descrição</label>
         <textarea id="descricao" name="descricao"></textarea>
 
-        <label for="impacto">Impacto:</label>
+        <label for="impacto" class="obrigatorio">Impacto</label>
         <select id="impacto" name="impacto" required>
             <option value=""></option>
             <option value="1">1 - High</option>
@@ -49,7 +49,7 @@
             <option value="3">3 - Low</option> 
         </select>
 
-        <label for="urgencia">Urgência:</label>
+        <label for="urgencia" class="obrigatorio">Urgência</label>
         <select id="urgencia" name="urgencia" required>
             <option value=""></option>
             <option value="1">1 - High</option>

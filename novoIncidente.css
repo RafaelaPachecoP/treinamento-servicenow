@@ -49,8 +49,8 @@ textarea{
     resize: vertical;
 }
 
-.invalido{
-    border-color: #633431;
+input[type="text"].invalido, select.invalido, textarea.invalido{
+    border-color: #971b12;
     background-color: white;
 }
 
@@ -61,7 +61,7 @@ textarea{
     color: #797c82;
 }
 
-button{
+form button{
     margin-top: 32px;
     padding: 14px 32px;
     font-size: 16px;
@@ -87,7 +87,6 @@ button{
 }
 
 #cancelar{
-    margin-left: 12px;
     background-color: #85b7d6;
     color: #0b5471;
 }
@@ -100,5 +99,11 @@ button{
     display: flex;
     margin-top: 2px;
     font-size: 16px;
-    color: #633431;
+    color: #971b12;
+}
+
+label.obrigatorio::after{
+    content: " *";
+    color: #971b12;
+    font-size: 20px;
 }
