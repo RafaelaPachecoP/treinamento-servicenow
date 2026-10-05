@@ -1,0 +1,104 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f6f0e7;
+}
+
+h1{
+    margin: 40px 0 28px;
+    padding: 0 48px;
+    font-size: 32px;
+    color: #0b5471;
+}
+
+form{
+    max-width: 780px;
+    margin: 0 auto 64px;
+    padding: 44px 56px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px #797c82;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label{
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0b5471;
+}
+
+input[type="text"], select, textarea{
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid #85b7d6;
+    border-radius: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0b5471;
+}
+
+input[type="text"]:focus, select:focus, textarea:focus{
+    outline: none;
+    border-color: #0b5471;
+}
+
+textarea{
+    min-width: 120px;
+    resize: vertical;
+}
+
+.invalido{
+    border-color: #633431;
+    background-color: white;
+}
+
+#mensagem{
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #797c82;
+}
+
+button{
+    margin-top: 32px;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#criar{
+    background-color: #0b5471;
+    color: #f6f0e7;
+}
+
+#criar:hover{
+    background-color: #08425a;
+}
+
+#criar:disabled{
+    background-color: #85b7d6;
+    color: #0b5471;
+    cursor: not-allowed;
+}
+
+#cancelar{
+    margin-left: 12px;
+    background-color: #85b7d6;
+    color: #0b5471;
+}
+
+#cancelar:hover{
+    background-color: #6a9fb8;
+}
+
+.erro{
+    display: flex;
+    margin-top: 2px;
+    font-size: 16px;
+    color: #633431;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Incidente</title>
+    <link rel="stylesheet" href="painel.css">
+    <link rel="stylesheet" href="incidentesP1.css">
+    <link rel="stylesheet" href="novoIncidente.css">
+</head>
+<body>
+    <header>
+        <h2>Treinamento ServiceNow</h2>
+        <span id="conectado"></span>
+        <a class="volta" href="painel.html">Voltar para o painel</a>
+        <button onclick="sair()">Sair</button>
+    </header>
+
+    <h1>Novo Incidente</h1>
+
+    <form id="incidente" novalidate>
+        <label for="solicitante">Solicitante:</label>
+        <input type="text" id="solicitante" name="solicitante" required>
+
+        <label for="categoria">Categoria:</label>
+        <select type="text" id="categoria" name="categoria" required>
+            <option value=""></option>
+            <option value="inquiry">Inquiry / Help</option>
+            <option value="software">Software</option>
+            <option value="hardware">Hardware</option>
+            <option value="network">Network</option>
+            <option value="database">Database</option>
+            <option value="password_reset">Password Reset</option>
+        </select>
+
+        <label for="descricaoRe">Descrição resumida:</label>
+        <input type="text" id="descricaoRe" name="descricaoRe" maxlength="160">
+        <span id="contador">160 caracteres restantes</span>
+        <span id="erroDescricaoRe" class="erro"></span>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao"></textarea>
+
+        <label for="impacto">Impacto:</label>
+        <select id="impacto" name="impacto" required>
+            <option value=""></option>
+            <option value="1">1 - High</option>
+            <option value="2">2 - Medium</option>   
+            <option value="3">3 - Low</option> 
+        </select>
+
+        <label for="urgencia">Urgência:</label>
+        <select id="urgencia" name="urgencia" required>
+            <option value=""></option>
+            <option value="1">1 - High</option>
+            <option value="2">2 - Medium</option>
+            <option value="3">3 - Low</option>
+        </select>
+
+        <button type="submit" id="criar">Criar Incidente</button>
+        <button type="button" id="cancelar">Cancelar</button>
+        <p id="mensagem"></p>
+    </form>
+
+    <script src="novoIncidente.js"></script>
+</body>
+</html>
