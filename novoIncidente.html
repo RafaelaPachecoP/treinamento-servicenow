@@ -20,9 +20,11 @@
 
     <form id="incidente" novalidate>
         <label for="solicitante" class="obrigatorio">Solicitante</label>
-        <input type="text" id="solicitante" name="solicitante" required>
+        <input type="text" id="solicitante" name="solicitante" list="listaSolicitantes" required>
+        <datalist id="listaSolicitantes"></datalist>
+        <span id="carregandoSolicitantes">Carregando lista de solicitantes...</span>
 
-        <label for="categoria"">Categoria</label>
+        <label for="categoria">Categoria</label>
         <select type="text" id="categoria" name="categoria" required>
             <option value=""></option>
             <option value="inquiry">Inquiry / Help</option>

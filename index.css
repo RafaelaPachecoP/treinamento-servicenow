@@ -110,3 +110,8 @@ label{
     color: #633431;
     font-size: 15px;
 }
+
+button:disabled, input:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}

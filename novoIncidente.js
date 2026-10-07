@@ -10,6 +10,26 @@ const credenciais = btoa(`${usuario}:${senha}`);
 
 document.getElementById("conectado").textContent = `${url} - ${usuario}`;
 
+fetch(`${url}/api/now/table/sys_user?sysparm_fields=user_name,name&sysparm_limit=1000&sysparm_query=active=true`, {
+    headers: {Authorization: `Basic ${credenciais}`},
+})
+.then((resposta) => resposta.json())
+.then((dados) => {
+    const listaSolicitantes = document.getElementById("listaSolicitantes");
+    dados.result.forEach((pessoa) => {
+        const opcao = document.createElement("option");
+        opcao.value = pessoa.user_name;
+        opcao.textContent = pessoa.name;
+        listaSolicitantes.appendChild(opcao);
+    });
+
+    document.getElementById("carregandoSolicitantes").style.display = "none";
+})
+.catch(() => {
+    console.log("Não foi possível carregar a lista de solicitantes.");
+    document.getElementById("carregandoSolicitantes").textContent = "Não foi possível carregar sugestões"
+})
+
 //botao sair, limpa a sessao e volta para o index.html
 const sair = () => {
     sessionStorage.clear();
@@ -107,7 +127,7 @@ document.getElementById("incidente").addEventListener("submit", (evento) => {
     .then((dados) => {
         //mostra o numero do incidente criado e limpa o formulario
         const numero = dados.result.number;
-        mensagem.textContent = `Incidente ${numero} criado`;
+        mensagem.textContent = `Incidente ${numero} criado com sucesso`;
         document.getElementById("incidente").reset();
         contador.textContent = "160 caracteres restantes";
 
